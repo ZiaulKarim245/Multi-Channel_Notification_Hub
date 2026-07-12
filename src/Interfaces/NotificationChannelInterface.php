@@ -1,10 +1,10 @@
 <?php
     namespace App\Interface;
 
+    /**
+     * Dispatches the notification through designated channel
+     */
     interface NotificationChannelInterface {
-
-        # Dispatches the notification through designated channel
-
         public function send(): bool;
     }
 ?>
