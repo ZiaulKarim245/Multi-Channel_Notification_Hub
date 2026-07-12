@@ -1,5 +1,5 @@
 <?php
-    namespace App\Abstract;
+    namespace App\Abstracts;
 
     /**
      * Unified format for the different notification channels.
