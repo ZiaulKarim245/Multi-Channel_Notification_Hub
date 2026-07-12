@@ -1,5 +1,5 @@
 <?php
-    namespace App\Interface;
+    namespace App\Interfaces;
 
     /**
      * Dispatches the notification through designated channel
