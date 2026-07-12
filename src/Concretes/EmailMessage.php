@@ -34,6 +34,6 @@
         }
 
         public function __toString(): string {
-            return "Email successfully sent to " . $this->getRecipient();
+            return "Email successfully formatted for " . $this->getRecipient();
         }
     }

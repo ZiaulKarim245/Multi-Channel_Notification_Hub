@@ -34,6 +34,6 @@
         }
 
         public function __toString(): string {
-            return "SMS successfully sent to " . $this->getRecipient();
+            return "SMS successfully formatted for " . $this->getRecipient();
         }
     }

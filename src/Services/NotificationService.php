@@ -11,7 +11,7 @@
 
         public function dispatch(NotificationChannelInterface $channel): bool {
 
-            echo $channel;
+            echo $channel . "\n";
 
             if ($channel->send()) {
                 self::$totalSent++;

@@ -35,6 +35,6 @@
         }
 
         public function __toString(): string {
-            return "Push Notification successfully sent to ". $this->getRecipient();
+            return "Push Notification successfully formatted for ". $this->getRecipient();
         }
     }
