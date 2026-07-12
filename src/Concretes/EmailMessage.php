@@ -1,5 +1,5 @@
 <?php
-    namespace App\Concrete;
+    namespace App\Concretes;
 
     use App\Abstracts\BaseMessage;
     use App\Interfaces\NotificationChannelInterface;
@@ -23,7 +23,7 @@
         }
 
         public function send(): bool {
-            $fomatted = $this->formatMessage();
+            $formatted = $this->formatMessage();
             $result = true; # pretend it works because of not having real service provider
 
             // $response = file_get_contents("https://sendgrid.com...", $formatted);
@@ -34,6 +34,6 @@
         }
 
         public function __toString(): string {
-            return "Email successfully send to {$this->getRecipient()}";
+            return "Email successfully sent to " . $this->getRecipient();
         }
     }
