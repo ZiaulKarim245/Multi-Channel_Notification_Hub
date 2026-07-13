@@ -3,7 +3,7 @@
 
     use App\Exceptions\ValidationException;
 
-    class NotificationValidation {
+    class NotificationValidator {
         public static function validateEmail(string $recipient): void {
             if(!filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
                 throw new ValidationException("Invalid email format: '$recipient'");

@@ -17,7 +17,8 @@
 
         public function __construct(string $recipient, string $message, string $firebaseToken) {
             NotificationValidator::validateMessage($message);
-            NotificationValidator::validateCredential($apikey, 'Firebase Token');
+            NotificationValidator::validateCredential($firebaseToken, 'Firebase Token');
+            
             parent::__construct($recipient, $message);
 
             $this->firebaseToken = $firebaseToken;

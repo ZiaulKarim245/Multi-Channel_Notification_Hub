@@ -62,7 +62,7 @@
                                 throw new \Exception("Unsupported notification channel: " . $notification['type']);
                         }
                         $service->addToQueue($message);
-                        echo "[QUEUE] is ready to send to: " . $notification['recipient'] . "\n\n";
+                        echo "[QUEUE] is ready to sent to: " . $notification['recipient'] . "\n\n";
                     } catch (ValidationException $e) {
                         echo "[VALIDATION SKIP] ". $e->getMessage() . "\n\n";
                     } catch (\Exception $e) {
@@ -70,6 +70,7 @@
                     }
                 }
 
+                echo "Dispatch Notifications: \n\n";
                 $service->dispatchQueue();
                 
                 echo "Total message dispatch: ". NotificationService::getTotalSent();
