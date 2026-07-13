@@ -29,7 +29,7 @@
             foreach($this->queue as $key => $channel) {
                 try {
                     $this->dispatch($channel);
-                    unset($this->queue[$key]);  # throw will break loop
+                    unset($this->queue[$key]); 
                 } catch (\Exception $e){
                     echo "[BATCH ERROR] Delivery failed for an item: " . $e->getMessage() . "\n\n";
                 }
