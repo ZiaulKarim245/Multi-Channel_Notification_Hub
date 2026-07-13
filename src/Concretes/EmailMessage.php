@@ -4,6 +4,7 @@
     use App\Abstracts\BaseMessage;
     use App\Interfaces\NotificationChannelInterface;
     use App\Traits\Loggable;
+    use App\Validators\NotificationValidator;
 
     /**
      * Email notification channel execution.
@@ -14,6 +15,8 @@
         private string $subject;
 
         public function __construct(string $recipient, string $subject, string $message) {
+            NotificationValidator::validateEmail($recipient);
+            NotificationValidator::validateMessage($message);
             parent::__construct($recipient,$message);
             $this->subject = $subject;
         }

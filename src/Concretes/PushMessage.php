@@ -4,6 +4,7 @@
     use App\Abstracts\BaseMessage;
     use App\Interfaces\NotificationChannelInterface;
     use App\Traits\Loggable;
+    use App\Validators\NotificationValidator;
 
     /**
      * Firebase Web Push Notification Channel execution.
@@ -15,6 +16,8 @@
         private string $firebaseToken;
 
         public function __construct(string $recipient, string $message, string $firebaseToken) {
+            NotificationValidator::validateMessage($message);
+            NotificationValidator::validateCredential($apikey, 'Firebase Token');
             parent::__construct($recipient, $message);
 
             $this->firebaseToken = $firebaseToken;

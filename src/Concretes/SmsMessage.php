@@ -4,6 +4,7 @@
     use App\Abstracts\BaseMessage;
     use App\Interfaces\NotificationChannelInterface;
     use App\Traits\Loggable;
+    use App\Validators\NotificationValidator;
 
     /**
      * SMS notification channel execution.
@@ -15,6 +16,9 @@
         private string $apikey;
 
         public function __construct(string $recipient, string $message, string $apikey) {
+            NotificationValidator::validateNumber($recipient);
+            NotificationValidator::validateMessage($message);
+            NotificationValidator::validateCredential($apikey, 'SMS API Key');
             parent::__construct($recipient, $message);
             $this->apikey = $apikey;
         }
