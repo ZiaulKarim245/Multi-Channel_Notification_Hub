@@ -3,6 +3,7 @@
 
     use App\Exceptions\ValidationException;
 
+    // Note: This validation logic can alternatively be implemented within a trait.
     class NotificationValidator {
         public static function validateEmail(string $recipient): void {
             if(!filter_var($recipient, FILTER_VALIDATE_EMAIL)) {

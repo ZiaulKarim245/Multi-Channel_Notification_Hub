@@ -11,11 +11,13 @@
      */
     class EmailMessage extends BaseMessage implements NotificationChannelInterface{
         use Loggable;
+        // use Validatable;
 
         private string $subject;
 
         public function __construct(string $recipient, string $subject, string $message) {
             NotificationValidator::validateEmail($recipient);
+            // $this->validateEmail($recipient);
             NotificationValidator::validateMessage($message);
             parent::__construct($recipient,$message);
             $this->subject = $subject;
